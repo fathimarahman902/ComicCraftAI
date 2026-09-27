@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}
+Create a Comic — ComicCraft
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <p class="eyebrow">
+        GEMINI + AI ART
+    </p>
+
+    <h1>
+        Turn one idea into a comic.
+    </h1>
+
+    <p>
+        Describe your story, choose the mood
+        and art style, and ComicCraft builds
+        five connected panels with narration,
+        dialogue, illustrations and a PDF.
+    </p>
+
+</section>
+
+
+{% if error %}
+
+<div class="alert">
+    {{ error }}
+</div>
+
+{% endif %}
+
+
+<form
+    class="card form-grid"
+    action="/generate"
+    method="post"
+    id="comic-form"
+>
+
+    <label class="full">
+
+        Story Prompt
+
+        <textarea
+            name="story_prompt"
+            maxlength="2000"
+            placeholder="A brave fox exploring an enchanted forest..."
+        ></textarea>
+
+    </label>
+
+
+    <label>
+
+        Main Character
+
+        <input
+            name="character_name"
+            maxlength="80"
+            placeholder="Aria"
+        >
+
+    </label>
+
+
+    <label>
+
+        Setting
+
+        <select name="setting">
+
+            <option>
+                Enchanted forest
+            </option>
+
+            <option>
+                School
+            </option>
+
+            <option>
+                Futuristic city
+            </option>
+
+            <option>
+                Outer space
+            </option>
+
+            <option>
+                Beach town
+            </option>
+
+        </select>
+
+    </label>
+
+
+    <label>
+
+        Story Tone
+
+        <select name="tone">
+
+            <option>
+                Light-hearted
+            </option>
+
+            <option>
+                Dramatic
+            </option>
+
+            <option>
+                Poetic
+            </option>
+
+            <option>
+                Funny
+            </option>
+
+            <option>
+                Mysterious
+            </option>
+
+        </select>
+
+    </label>
+
+
+    <label>
+
+        Art Style
+
+        <select name="art_style">
+
+            <option>
+                Comic book
+            </option>
+
+            <option>
+                Anime
+            </option>
+
+            <option>
+                Pixel art
+            </option>
+
+            <option>
+                Realistic
+            </option>
+
+            <option>
+                Watercolor
+            </option>
+
+        </select>
+
+    </label>
+
+
+    <button
+        class="primary full"
+        type="submit"
+    >
+        Create My Comic ✨
+    </button>
+
+
+    <p class="hint full">
+
+        The project can run in Demo Mode
+        without API keys. Add Gemini and
+        Hugging Face keys in
+        <code>.env</code>
+        for real AI generation.
+
+    </p>
+
+</form>
+
+{% endblock %}
